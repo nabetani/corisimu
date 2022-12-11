@@ -70,8 +70,9 @@ const update = (env) => {
     env.objs = objs;
     while (env.objs.length < n) {
         const t = Math.random() * Math.PI * 2;
-        const x = farpos * Math.cos(t);
-        const y = farpos * Math.sin(t);
+        const r = farpos + Math.random() - 0.5;
+        const x = r * Math.cos(t);
+        const y = r * Math.sin(t);
         env.objs.push(createObj({ x: x, y: y }));
     }
 
@@ -126,12 +127,13 @@ const start = () => {
     }
     clearCircles();
     const objs = [];
-    const n = 20;
-    const w = 2;
-    const dist = (farpos - nearpos) / 7;
+    const parcount = formNum("parcount");
+    const dist = (farpos - nearpos) / parcount;
     for (let r = nearpos; r < farpos; r += dist) {
         const c = Math.round(r * Math.PI * 2 / dist);
-        for (let t = 0; t < c; t++) {
+        const tbase = Math.random()
+        for (let t0 = 0; t0 < c; t0++) {
+            const t = t0 + tbase;
             const rv = r + Math.random() - 0.5;
             let x = rv * Math.cos(t);
             let y = rv * Math.sin(t);
