@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>corisimu</title>
+  <script src="simu.js"></script>
+  <style>
+    input {
+      width: 6em;
+    }
+  </style>
+</head>
+
+<body>
+  &nbsp;<label for"attract">引力: </label>
+  <input type="text" id="attract" value="1">
+  &nbsp;<label for"cori">コリオリ力: </label>
+  <input type="text" id="cori" value="0.03">
+  &nbsp;<label for"friction">粘性摩擦: </label>
+  <input type="text" id="friction" value="1e-4">
+  &nbsp;<label for"repel">反発力: </label>
+  <input type="text" id="repel" value="1e-3">
+  <br>
+  <button onclick="start()">start</button>
+  <hr>
+  <div>
+    <svg height="600px" width="600px" viewBox="-20 -20 40 40">
+      <g style="fill:none;stroke-width:0.1;stroke:gray">
+        <path d="M0 -100 V100"></path>
+        <path d="M -100 0 H100"></path>
+      </g>
+      <g id="g" style='fill:black;stroke-width:0'>
+    </svg>
+  </div>
+</body>
+
+</html>
